@@ -37,6 +37,99 @@ h1 {
     font-size: 1.1em;
 }
 
+.color-picker-section {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.color-picker-section h2 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.color-palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    min-height: 50px;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color-swatch .remove-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: #ff4444;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.color-swatch:hover .remove-btn {
+    opacity: 1;
+}
+
+.add-color-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#colorInput {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-color-btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-color-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.add-color-btn:active {
+    transform: translateY(0);
+}
+
 .sandbox-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
