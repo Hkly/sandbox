@@ -14,6 +14,9 @@ let colors = [
     '#FF8C00'  // Dark orange
 ];
 
+// Maximum value for RGB color (0xFFFFFF)
+const MAX_COLOR_VALUE = 16777215;
+
 // Render the color palette swatches
 function renderColorPalette() {
     const palette = document.getElementById('colorPalette');
@@ -56,7 +59,7 @@ function addColor() {
     renderColorPalette();
     
     // Generate a new random color for the next selection
-    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+    const randomColor = '#' + Math.floor(Math.random() * MAX_COLOR_VALUE).toString(16).padStart(6, '0').toUpperCase();
     colorInput.value = randomColor;
 }
 
@@ -73,7 +76,7 @@ function removeColor(index) {
     // Update all cells that had a color index >= removed index
     const cells = document.querySelectorAll('.sandbox-cell');
     cells.forEach(cell => {
-        let colorIndex = parseInt(cell.dataset.colorIndex);
+        let colorIndex = parseInt(cell.dataset.colorIndex, 10) || 0;
         if (colorIndex === index) {
             // Reset to default if the cell was using the removed color
             cell.dataset.colorIndex = '0';
@@ -111,7 +114,7 @@ function initializeSandbox() {
 
 // Cycle through colors when clicked
 function cycleColor(cell) {
-    let currentIndex = parseInt(cell.dataset.colorIndex);
+    let currentIndex = parseInt(cell.dataset.colorIndex, 10) || 0;
     currentIndex = (currentIndex + 1) % colors.length;
     cell.dataset.colorIndex = currentIndex;
     cell.style.backgroundColor = colors[currentIndex];
