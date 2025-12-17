@@ -143,7 +143,7 @@ function resetSandbox() {
 }
 
 // Apply theme
-function applyTheme(themeName) {
+function applyTheme(themeName, save = true) {
     const theme = themes[themeName];
     if (!theme) return;
     
@@ -157,7 +157,9 @@ function applyTheme(themeName) {
     document.documentElement.style.setProperty('--btn-gradient-end', theme.btnGradient[1]);
     
     // Save theme preference
-    localStorage.setItem('sandboxTheme', themeName);
+    if (save) {
+        localStorage.setItem('sandboxTheme', themeName);
+    }
     
     // Reset the grid to show new colors
     resetSandbox();
@@ -169,7 +171,7 @@ function loadTheme() {
     if (savedTheme && themes[savedTheme]) {
         currentTheme = savedTheme;
         document.getElementById('themeSelect').value = savedTheme;
-        applyTheme(savedTheme);
+        applyTheme(savedTheme, false);
     }
 }
 
