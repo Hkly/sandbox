@@ -4,14 +4,22 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-gradient-start: #667eea;
+    --bg-gradient-end: #764ba2;
+    --btn-gradient-start: #667eea;
+    --btn-gradient-end: #764ba2;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    transition: background 0.5s ease;
 }
 
 .container {
@@ -33,8 +41,41 @@ h1 {
 .instructions {
     text-align: center;
     color: #666;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 1.1em;
+}
+
+.theme-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.theme-selector label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1em;
+}
+
+.theme-selector select {
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.theme-selector select:hover {
+    border-color: var(--btn-gradient-start);
+}
+
+.theme-selector select:focus {
+    outline: none;
+    border-color: var(--btn-gradient-start);
 }
 
 .sandbox-grid {
@@ -65,7 +106,7 @@ h1 {
 .reset-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--btn-gradient-start) 0%, var(--btn-gradient-end) 100%);
     color: white;
     border: none;
     border-radius: 10px;
